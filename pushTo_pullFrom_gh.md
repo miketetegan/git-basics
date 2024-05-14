@@ -102,7 +102,17 @@ From github.com:miketetegan/git-basics
  * [new branch]      main       -> origin/main
 ```
 
-
+## Commands Summary ##
+| Command | Description |
+| --- | --- |
+| `ssh-keygen` | Generates an SSH key pair |
+| `ssh-add <key>` | Add a private key to the ssh-agent |
+| `git remote add` | Add a remote repository |
+| `git remote -v` | List configured remote repositories |
+| `git branch -a` | List all branches including local and remotes |
+| `git branch -M` | Rename a branch |
+| `git pull` | Pull from a remote repository |
+| `git push` | Push to a remote repository |
 
 
 

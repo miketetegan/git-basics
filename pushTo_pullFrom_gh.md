@@ -41,7 +41,7 @@ $ eval "$(ssh-agent -s)"
 Agent pid 15439
 
 $ ssh-add key
-Identity added: key (miketeteganbenissan@gmail.com)
+Identity added: key (miketeteganbenissan@gmail.com) #the value in parenthesis is the comment we specified during the key creation
 ```
 If we try to push to the repository, we can see we get an error. There is still some configurations left to do before we can push to our git repository.
 ```py
@@ -52,18 +52,48 @@ Either specify the URL from the command-line or configure a remote repository us
 and then push using the remote name
     git push <remote_name>
 ```
-We have to configured to which remote repository we want to push our changes to. Run `git remote add <name> <url>` to do so. You can list configured remote repositories by running `git remote -v`\
+We have to configured to which remote repository we want to push our changes to. Run `git remote add <name> <url>` to do so. To push the configuration, run `git push <remote_name>`. Let's push our configuration to our remote **test** repository.\
+You can list configured remote repositories by running `git remote -v`.\
+***Note that the repository should already exist in Github before you can push the changes to it***.
 ```py
-$ git remote add origin git@github.com:miketetegan/git-basics.git
+$ git remote add origin git@github.com:miketetegan/test.git
 
 $ git remote -v
-origin  git@github.com:miketetegan/git-basics.git (fetch)
-origin  git@github.com:miketetegan/git-basics.git (push)
+origin  git@github.com:miketetegan/test.git (fetch)
+origin  git@github.com:miketetegan/test.git (push)
+```
+Now we need to add the remote upstream branch we want to push to.  
+The default branch created in Github is **main** but the one created in our local repository is named **master**, so we need to rename our local branch to match the remote Github branch name, by running `git branch -M <new_name>`. To list all branches, use `git branch -a`.
+```py
+$ git branch -a
+* master
+
+$ git branch -M main
+$ git branch -a
+* main
+
+$ git push --set-upstream origin main
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 259 bytes | 51.00 KiB/s, done.
+Total 1 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:miketetegan/test.git
+   067914a..9a98bfc  main -> main
+branch 'main' set up to track 'origin/main'.
+
+$ git branch -a
+* main
+  remotes/origin/main
+```
+We can see that our local repo has been successfully pushed to the remote Github repository. The remote branch has also been added as shown in the above output.
+To pull remote changes to local repo, you need to specify as well the remote repository to pull from and the branch name by running `git pull <remote> <branch>`.
+```
+$ git pull origin main
 
 ```
-To push the configuration, run `git push <remote_name>`. Let's push our configuration to our remote **git-basics** repository. Note that the repository should already exist in Github before you can push changes to it. 
-
-
 
 
 

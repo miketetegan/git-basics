@@ -109,7 +109,7 @@ From github.com:miketetegan/git-basics
 | `ssh-add <key>` | Add a private key to the ssh-agent |
 | `git remote add` | Add a remote repository |
 | `git remote -v` | List configured remote repositories |
-| `git branch -a` | List all branches including local and remotes |
+| `git branch -a` | List local and remote branches |
 | `git branch -M` | Rename a branch |
 | `git pull` | Pull from a remote repository |
 | `git push` | Push to a remote repository |

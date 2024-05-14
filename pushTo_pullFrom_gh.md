@@ -89,19 +89,18 @@ $ git branch -a
   remotes/origin/main
 ```
 We can see that our local repo has been successfully pushed to the remote Github repository. The remote branch has also been added as shown in the above output.
-To pull remote changes to local repo, you need to specify as well the remote repository to pull from and the branch name by running `git pull <remote> <branch>`.
-```
+To pull remote changes to local repo, we need to specify as well the remote repository we want to pull from and the branch name by running `git pull <remote> <branch>`.
+```py
 $ git pull origin main
-
+remote: Enumerating objects: 24, done.
+remote: Counting objects: 100% (24/24), done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 24 (delta 6), reused 8 (delta 1), pack-reused 0
+Unpacking objects: 100% (24/24), 9.30 KiB | 238.00 KiB/s, done.
+From github.com:miketetegan/git-basics
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> origin/main
 ```
-
-
-
-
-
-
-
-
 
 
 

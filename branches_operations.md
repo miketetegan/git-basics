@@ -50,7 +50,8 @@ $ git branch -a
 * main
   remotes/origin/main
 ```
-To merge a branch to another one, run `git merge <branch_to_merge>`. Let's merge the **dev** branch to the **main** branch.
+To merge a branch to another one, run `git merge <branch_to_merge>`. Let's merge the **dev** branch to the **main** branch.\
+**Note: Merging two branches copies all the commits and create a new commit.**
 ```py
 $ git checkout prod
 Switched to branch 'prod'
@@ -72,25 +73,25 @@ Fast-forward
  create mode 100644 file1
 
 $ git log --oneline
-6de009d (HEAD -> prod, main) first line
+32034b0 (HEAD -> main)  merge to prod branch
+6de009d (prod) first line
 bc49af8 add file1
 6ae7aa6 first commit
 ```
-Instead of merging, you can rebase the changes to move all your commits from the branch you want to merge from, to the main branch.
-```py
-$ git checkout prod
-Switched to branch 'prod'
-$ git rebase main
-Successfully rebased and updated refs/heads/prod.
-$ git log --oneline
+```mermaid
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true}} }%%
+      gitGraph TB:
+        commit id: "6ae7aa6" tag:"first commit"
+        branch prod
+        checkout prod
+        commit id: "bc49af8" tag: "add file1"
+        commit id: "6de009d" tag: "first line"
+        checkout main
+        merge prod
+        commit id: "32034b0" tag: "merge to prod"
 
-
-$ git checkout main
-Switched to branch 'main'
-$ git rebase prod
-Successfully rebased and updated refs/heads/main.
-$ git log --oneline
 ```
+Instead of merging, you can rebase the changes to move all your commits from the branch you want to merge from, to the main branch. It rewrites history by putting changes from one branch at the beginning of another, resulting in a more organized, linear project history. Use `git rebase <branch_name>` to do so.
 
 
 

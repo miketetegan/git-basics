@@ -52,12 +52,29 @@ $ git branch -a
 ```
 To merge a branch to another one, run `git merge <branch_to_merge>`. Let's merge the **dev** branch to the **main** branch.
 ```py
+$ git checkout prod
+Switched to branch 'prod'
+$ git log --oneline
+6de009d (HEAD -> prod) first line
+bc49af8 add file1
+6ae7aa6 (main) first commit
+
 $ git checkout main
 Switched to branch 'main'
-$ git merge dev
-Updating 716ae24..18945c2
+$ git log --oneline
+6ae7aa6 (HEAD -> main, prod) first commit
+
+$ git merge prod
+Updating 6ae7aa6..6de009d
 Fast-forward
- 1 file changed
+ file1 | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1
+
+$ git log --oneline
+6de009d (HEAD -> prod, main) first line
+bc49af8 add file1
+6ae7aa6 first commit
 ```
 Instead of merging, you can rebase the changes to move all your commits from the branch you want to merge from, to the main branch.
 ```py

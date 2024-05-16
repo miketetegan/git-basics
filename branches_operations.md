@@ -93,5 +93,18 @@ bc49af8 add file1
 ```
 Instead of merging, you can rebase the changes to move all your commits from the branch you want to merge from, to the main branch. It rewrites history by putting changes from one branch at the beginning of another, resulting in a more organized, linear project history. Use `git rebase <branch_name>` to do so.
 
+## Commands Summary ##
+| Command | Description |
+| --- | --- |
+| `git branch` | Create a new branch based on the currently selected branch |
+| `git branch -c` | Create a new branch based on a specified branch |
+| `git checkout` | Switch to another branch |
+| `git checkout -b` | Create a new branch and switch to it |
+| `git branch -m` | Rename a branch |
+| `git branch -a` | List all branches including remote and local |
+| `git branch -d` | Delete a branch |
+| `git merge` | Merge commits to a branch |
+| `git rebase` | Rebase commits to a branch |
+
 
 

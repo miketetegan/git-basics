@@ -43,7 +43,7 @@ $ git branch -a
 $ git branch -d production
 error: Cannot delete branch 'production' checked out at '/test'
 
-$ git branch main
+$ git checkout main
 $ git branch -d production
 $ git branch -a
   dev
@@ -74,14 +74,6 @@ $ git rebase prod
 Successfully rebased and updated refs/heads/main.
 $ git log --oneline
 ```
-
-
-
-
-
-
-
-
 
 
 
